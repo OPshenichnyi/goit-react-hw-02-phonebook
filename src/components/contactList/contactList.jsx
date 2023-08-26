@@ -1,10 +1,22 @@
+import { Formik, Field, Form } from 'formik';
 
+export const ContactList = ({ phoneBook, removeContact, filterContact}) => {
 
-export const ContactList = ({ phoneBook, removeContact }) => {
-      
     return (
         <ul>
-            {phoneBook.map(({ id, name, number }) => (
+            <form>
+                <label htmlFor="name">
+                    Filter 
+                    <br />
+                    <input
+                        type="text"
+                        name="filter"
+                        onChange={(e) => { filterContact(e.target.value)}}
+                    />
+                </label>
+            </form>
+
+            {phoneBook.filter(user => user.name.includes('')).map(({ id, name, number }) => (
                 <li key={id}>
                     <span>{name}:</span>
                     <span> {number}</span>
