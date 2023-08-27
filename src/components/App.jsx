@@ -2,6 +2,7 @@ import { Component } from "react"
 import { ContactForm } from "./contactForm/contactForm";
 import { ContactList } from "./contactList/contactList";
 import { Filter } from "./filter/filter";
+import { Wrapper } from "./App.styled"
 
 
 export class App extends Component {
@@ -31,19 +32,10 @@ export class App extends Component {
   filterContact = (evt) => {
     this.setState({filter: evt})
   }
-  
+
   render() {
     return (
-      <div
-        style={{
-          height: '100vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          fontSize: 26,
-          color: '#010101'
-        }}
-      >
+      <Wrapper>
         <ContactForm 
           addConacts={this.addConacts}
         >
@@ -59,8 +51,7 @@ export class App extends Component {
           filter={this.state.filter}
         >
         </ContactList>     
-
-      </div>
+      </Wrapper>
     );
   }
 };

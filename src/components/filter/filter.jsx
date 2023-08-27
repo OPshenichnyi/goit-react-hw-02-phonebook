@@ -1,8 +1,9 @@
+import { CssFilterWrrap } from "./filter.styled"
 
 
 export const Filter = ({filterContact}) => {
     return (
-        <form>
+        <CssFilterWrrap>
             <label htmlFor="name">
                 Filter
                 <br />
@@ -15,6 +16,6 @@ export const Filter = ({filterContact}) => {
                     }}
                 />
             </label>
-        </form>
+        </CssFilterWrrap>
     )
 }
