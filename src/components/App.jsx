@@ -3,7 +3,6 @@ import { ContactForm } from "./contactForm/contactForm";
 import { ContactList } from "./contactList/contactList";
 
 
-
 export class App extends Component {
   state = {
     contacts: [
@@ -13,7 +12,6 @@ export class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
-    name: ''
   };
 
   addConacts = (data) => {
@@ -24,13 +22,11 @@ export class App extends Component {
     this.setState(prevState => ({ contacts: prevState.contacts.filter(user=>user.id !== id )}))
   }
 
-  filterContact = (str) => {
-    // console.log(this.state.filter);
-    // this.setState({ filter : str})
+  filterContact = (evt) => {
+    this.setState({filter: evt})
   }
 
   render() {
-    this.filterContact()
     return (
       <div
         style={{
@@ -51,6 +47,7 @@ export class App extends Component {
           phoneBook={this.state.contacts}
           removeContact={this.removeContact}
           filterContact={this.filterContact}
+          filter={this.state.filter}
         >
         </ContactList>     
 
