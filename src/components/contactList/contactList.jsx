@@ -1,24 +1,9 @@
 
 
-export const ContactList = ({ phoneBook, removeContact, filterContact, filter}) => {
+export const ContactList = ({ phoneBook, removeContact, filter}) => {
 
     return (
         <ul>
-            <form>
-                <label htmlFor="name">
-                    Filter 
-                    <br />
-                    <input
-                        type="text"
-                        name="filter"
-                        onChange={(e) => {
-                            e.preventDefault()
-                            filterContact(e.target.value)
-                        }}
-                    />
-                </label>
-            </form>
-
             {phoneBook.filter(user => user.name.toLowerCase().includes(filter.toLowerCase())).map(({ id, name, number }) => (
                 <li key={id}>
                     <span>{name}:</span>

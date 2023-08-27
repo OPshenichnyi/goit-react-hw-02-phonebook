@@ -1,6 +1,7 @@
 import { Component } from "react"
 import { ContactForm } from "./contactForm/contactForm";
 import { ContactList } from "./contactList/contactList";
+import { Filter } from "./filter/filter";
 
 
 export class App extends Component {
@@ -15,7 +16,12 @@ export class App extends Component {
   };
 
   addConacts = (data) => {
-    this.setState(prevState => ({contacts: prevState.contacts.concat(data)}))
+    const checkNameUser = this.state.contacts.some(user => user.name.toLowerCase() === data.name.toLowerCase())
+    if (checkNameUser) {
+      alert(`${data.name} is already in contacts`)
+      return
+    }
+    this.setState(prevState => ({ contacts: prevState.contacts.concat(data) }))
   }
 
   removeContact = (id) => {
@@ -25,7 +31,7 @@ export class App extends Component {
   filterContact = (evt) => {
     this.setState({filter: evt})
   }
-
+  
   render() {
     return (
       <div
@@ -43,10 +49,13 @@ export class App extends Component {
         >
         </ContactForm>
         <h2>Contacts</h2>
+        <Filter
+          filterContact={this.filterContact}
+        >
+        </Filter>
         <ContactList
           phoneBook={this.state.contacts}
           removeContact={this.removeContact}
-          filterContact={this.filterContact}
           filter={this.state.filter}
         >
         </ContactList>     
