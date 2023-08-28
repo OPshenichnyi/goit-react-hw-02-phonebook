@@ -36,6 +36,7 @@ export class App extends Component {
   render() {
     return (
       <Wrapper>
+        <h1>Phonebook</h1>
         <ContactForm 
           addConacts={this.addConacts}
         >
