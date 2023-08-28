@@ -1,11 +1,11 @@
 import { ListItemPhone } from "./contactList.styled"
 
 
-export const ContactList = ({ phoneBook, removeContact, filter}) => {
+export const ContactList = ({phoneBook, removeContact}) => {
 
     return (
         <ul>
-            {phoneBook.filter(user => user.name.toLowerCase().includes(filter.toLowerCase())).map(({ id, name, number }) => (
+            {phoneBook.map(({ id, name, number }) => (
                 <ListItemPhone key={id}>
                     <span>{name}:</span>
                     <span> {number}</span>

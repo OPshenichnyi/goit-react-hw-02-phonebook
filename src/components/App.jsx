@@ -30,7 +30,11 @@ export class App extends Component {
   }
 
   filterContact = (evt) => {
-    this.setState({filter: evt})
+    this.setState({ filter: evt })
+  }
+
+  filtredContactArr = () => {
+    return this.state.contacts.filter(user => user.name.toLowerCase().includes(this.state.filter.toLowerCase()))
   }
 
   render() {
@@ -47,7 +51,7 @@ export class App extends Component {
         >
         </Filter>
         <ContactList
-          phoneBook={this.state.contacts}
+          phoneBook={this.filtredContactArr()}
           removeContact={this.removeContact}
           filter={this.state.filter}
         >
