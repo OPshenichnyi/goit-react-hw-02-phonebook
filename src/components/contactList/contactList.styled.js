@@ -5,14 +5,19 @@ export const ListItemPhone = styled.li`
 font-family:'Montserrat';
 font-size:14px;
 color:#5a5a5a;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 10px;
 span{
-    margin-right: 15px;
+    width: 125px;
     display: inline-block;
-    gap: 24px;
+    margin-bottom: 15px;
+}
+span:nth-child(2){
+    width: 80px;
 }
 button{
-    padding:0px 6px;
-    margin:8px 0 0;
+    height: 20px;
     font-family:'Montserrat',
     sans-serif;border:2px solid #78788c;
     background:0;
